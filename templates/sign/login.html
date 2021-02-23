@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block title %} Загрузка изображений {% endblock title %}
+{% block content %}
+<br>
+<h4> Извините, но страница доступна только авторизованным пользователям </h4>
+<h5> Вы можете выполнить вход с помощью логина и пароля </h5><br>
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+    <br>
+    <div style="margin-left:-800px;"> <input type="submit" value="Войти"> </div>
+    <hr>
+</form>
+<br>
+<div align="left">Впервые на нашем сайте? Тогда вам необходимо <a href="/sign/signup/"> зарегистрироваться </a></div>
+{% endblock %}

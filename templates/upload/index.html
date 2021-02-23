@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block title %} Загрузчик изображений {% endblock title %}
+{% block content %}
+<h2> Добро пожаловать в загрузчик изображений, {{request.user.username}}</h2><hr>
+<p align="left">Обратите внимание на наши ограничения:</p>
+<p align="left">1. Максимальный размер 200кб</p>
+<p align="left"> <b>Примечание:</b> изображение будет сохранено с уникальным названием</p>
+<hr>
+<h3> Форма для загрузки изображений </h3> <br>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div align="left"><button type="submit">{{ form.as_p }}</button></div><br>
+  <div align="left"><button type="submit">Загрузить</button></div>
+</form>
+<hr>
+<button> <a href="/sign/logout/">Выйти</a> </button>
+{% endblock %}
